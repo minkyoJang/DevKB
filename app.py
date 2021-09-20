@@ -1,7 +1,6 @@
 # app.py
 import time
 import save
-import requests
 
 from flask import Flask, render_template, send_file, request
 
@@ -18,7 +17,6 @@ def post():
     value1 = request.form['userInput1']
     value2 = request.form['userInput2']
 
-    save.save_to_file()
     FN = str(value1)+"-"+str(value2) +".csv"
     
     with open(FN,mode = 'w') as f:
