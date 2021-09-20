@@ -1,7 +1,5 @@
 # app.py
 import time
-import save
-
 from flask import Flask, render_template, send_file, request
 
 # Flask 객체 인스턴스 생성
@@ -23,8 +21,6 @@ def post():
         f.write("Hellow-World")
     
     return send_file(FN,mimetype='application/x-csv',attachment_filename = FN, as_attachment=True)
-
-
 
 
 if __name__ == "__main__":
