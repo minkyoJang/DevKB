@@ -4,22 +4,15 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    
-    <a href="/export"><button>export to csv</button></a>
-        <!--
-        <a href="/export"><button>export to csv</button></a>
-
-        <a href="/csv_file_download_with_file">Click me.</a>
-        
-        <form method="get" action="csv_file_download_with_file">
-            <button type="submit">Download!</button>
-        </form>
-
-        -->
-
 </head>
 
 <body>
+    <form action = "/post" method = "post">
+        <p>시작일 : <input type="text" id="userInput1" name = "userInput1" value="yyyymmdd"> </p>
+        <p>종료일 : <input type="text" id="userInput2" name = "userInput2" value="yyyymmdd"> </p>
+        <input type = "submit" value = "export to csv">
+    </form>
+
 
 </body>
 </html>
