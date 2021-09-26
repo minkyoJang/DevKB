@@ -1,0 +1,26 @@
+# Algorithm Quiz 1
+# 아래는 2020년 매매데이터 이다, 월별 매수 총합계(buy_amount), 이익합계(profit_amout)를 구하시오
+order_data = [
+{"date":"2020/01/01", "buy_amount":"1,000.5", "profit_amount":"2,000"}, 
+{"date":"2020/01/02", "buy_amount":"1,000", "profit_amount":"2,000"}, 
+{"date":"2020/02/12", "buy_amount":"3000", "profit_amount":"-1,500"}, 
+{"date":"2020/02/21", "buy_amount":"1,000.11", "profit_amount":"1,000.5"}, 
+{"date":"2020/03/21", "buy_amount":"1,000", "profit_amount":"2,000"}, 
+{"date":"2020/04/01", "buy_amount":"1,000", "profit_amount":"92,000"}, 
+{"date":"2020/04/11", "buy_amount":"1,000.6", "profit_amount":"2,000.9"}, 
+{"date":"2020/06/02", "buy_amount":"11,000", "profit_amount":"122,000"}, 
+{"date":"2020/07/21", "buy_amount":"1,000", "profit_amount":"-2,000"}, 
+{"date":"2020/07/22", "buy_amount":"1,000", "profit_amount":"2,000"}, 
+{"date":"2020/08/21", "buy_amount":"1,000", "profit_amount":"-122,000"}, 
+{"date":"2020/08/26", "buy_amount":"2,000", "profit_amount":"3,000"},
+{"date":"2020/09/21", "buy_amount":"1,000", "profit_amount":"-122,000"}, 
+{"date":"2020/10/26", "buy_amount":"2,000", "profit_amount":"3,000.12"},
+{"date":"2020/11/29", "buy_amount":"1,000.2", "profit_amount":"-122,000"}, 
+{"date":"2020/12/26", "buy_amount":"2,000", "profit_amount":"3,000"}
+]
+# 기대값
+>>> monthly_order_data_2020["2020/01"]
+{"buy_amount":2000.5, "profit_amount":4,000}
+
+>>> monthly_order_data_2020["2020/02"]["profit_amount"]
+500
