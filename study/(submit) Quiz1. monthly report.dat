@@ -1,0 +1,34 @@
+import pandas as pd
+import numpy as np
+from pandas import DataFrame
+from pandas import Series
+
+data1 = [
+{"date":"2020/01/01", "buy_amount":"1,000.5", "profit_amount":"2,000"}, 
+{"date":"2020/01/02", "buy_amount":"1,000", "profit_amount":"2,000"}, 
+{"date":"2020/02/12", "buy_amount":"3000", "profit_amount":"-1,500"}, 
+{"date":"2020/02/21", "buy_amount":"1,000.11", "profit_amount":"1,000.5"}, 
+{"date":"2020/03/21", "buy_amount":"1,000", "profit_amount":"2,000"}, 
+{"date":"2020/04/01", "buy_amount":"1,000", "profit_amount":"92,000"}, 
+{"date":"2020/04/11", "buy_amount":"1,000.6", "profit_amount":"2,000.9"}, 
+{"date":"2020/06/02", "buy_amount":"11,000", "profit_amount":"122,000"}, 
+{"date":"2020/07/21", "buy_amount":"1,000", "profit_amount":"-2,000"}, 
+{"date":"2020/07/22", "buy_amount":"1,000", "profit_amount":"2,000"}, 
+{"date":"2020/08/21", "buy_amount":"1,000", "profit_amount":"-122,000"}, 
+{"date":"2020/08/26", "buy_amount":"2,000", "profit_amount":"3,000"},
+{"date":"2020/09/21", "buy_amount":"1,000", "profit_amount":"-122,000"}, 
+{"date":"2020/10/26", "buy_amount":"2,000", "profit_amount":"3,000.12"},
+{"date":"2020/11/29", "buy_amount":"1,000.2", "profit_amount":"-122,000"}, 
+{"date":"2020/12/26", "buy_amount":"2,000", "profit_amount":"3,000"}
+]
+
+
+df = DataFrame(data = data1)
+DF = df.replace(',', '', regex=True)
+DF['buy_amount'] = pd.to_numeric(DF['buy_amount'])
+DF['profit_amount'] = pd.to_numeric(DF['profit_amount'])
+
+DF['date'] = pd.to_datetime(DF['date']) # https://www.delftstack.com/ko/howto/python-pandas/how-to-convert-dataframe-column-to-datetime-in-pandas/
+DF['pr_month'] = DF['date'].dt.to_period(freq = 'M') # https://steadiness-193.tistory.com/60
+DF2 = DF[['pr_month','buy_amount','profit_amount']] # https://zephyrus1111.tistory.com/43
+DF2.groupby(['pr_month']).sum()
